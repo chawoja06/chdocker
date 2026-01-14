@@ -22,3 +22,4 @@ logs/
 .DS_Store
 Thumbs.db
 ARR List.txt
+shared/config/udms_bash_aliases
