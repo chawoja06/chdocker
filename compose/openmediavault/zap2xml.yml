@@ -1,0 +1,11 @@
+services:
+  zap2xml:
+    container_name: zap2xml
+    image: ghcr.io/jef/zap2xml:latest
+    environment:
+      LINEUP_ID: USA-MN22560-X
+      OUTPUT_FILE: /xmltv/xmltv.xml
+    volumes:
+      - $DOCKERDIR/appdata/jellyfin:/xmltv
+      - $DOCKERDIR/appdata/dispatcharr/epgs:/xmltv
+    restart: unless-stopped

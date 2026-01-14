@@ -1,0 +1,85 @@
+########################### NETWORKS
+# You may customize the network subnets (192.168.x.0/24) below as you please.
+networks:
+  default:
+    driver: bridge
+  socket_proxy:
+    name: socket_proxy
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.91.0/24
+  t3_proxy:
+    name: t3_proxy
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.90.0/24
+  # NETWORKS-PLACEHOLDER-DO-NOT-DELETE
+  
+########################### SECRETS
+secrets:
+  basic_auth_credentials:
+    file: $DOCKERDIR/secrets/basic_auth_credentials
+  cf_dns_api_token:
+    file: $DOCKERDIR/secrets/cf_dns_api_token
+  mariadb_root_password:
+    file: $DOCKERDIR/secrets/mariadb_root_password
+  nextcloud_admin_user:
+    file: $DOCKERDIR/secrets/nextcloud_admin_user
+  nextcloud_admin_password:
+    file: $DOCKERDIR/secrets/nextcloud_admin_password
+  nextcloud_mariadb_user:
+    file: $DOCKERDIR/secrets/nextcloud_mariadb_user
+  nextcloud_mariadb_password:
+    file: $DOCKERDIR/secrets/nextcloud_mariadb_password
+  postgres_default_password:
+    file: $DOCKERDIR/secrets/postgres_default_password
+  guac_mariadb_user:
+    file: $DOCKERDIR/secrets/guac_mariadb_user
+  guac_mariadb_password:
+    file: $DOCKERDIR/secrets/guac_mariadb_password
+  authelia_jwt_secret:
+    file: $DOCKERDIR/secrets/authelia_jwt_secret
+  authelia_session_secret:
+    file: $DOCKERDIR/secrets/authelia_session_secret
+  authelia_storage_encryption_key:
+    file: $DOCKERDIR/secrets/authelia_storage_encryption_key
+  # SECRETS-PLACEHOLDER-DO-NOT-DELETE
+                                      
+include:
+  ########################### SERVICES
+  # HOSTNAME defined in .env file
+
+  # - compose/$HOSTNAME/custom.yml
+  - compose/$HOSTNAME/socket-proxy.yml
+  - compose/$HOSTNAME/deployrr-dashboard.yml
+  - compose/$HOSTNAME/traefik.yml
+  - compose/$HOSTNAME/sabnzbd.yml
+  - compose/$HOSTNAME/redis.yml
+  - compose/$HOSTNAME/prowlarr.yml
+  - compose/$HOSTNAME/radarr.yml
+  - compose/$HOSTNAME/lidarr.yml
+  - compose/$HOSTNAME/sonarr.yml
+  - compose/$HOSTNAME/dozzle.yml
+  - compose/$HOSTNAME/gluetun.yml
+  - compose/$HOSTNAME/deunhealth.yml
+  - compose/$HOSTNAME/qbittorrent-vpn.yml
+  - compose/$HOSTNAME/flaresolverr.yml
+  - compose/$HOSTNAME/dispatcharr.yml
+  - compose/$HOSTNAME/mariadb.yml
+  - compose/$HOSTNAME/nextcloud.yml
+  - compose/$HOSTNAME/zap2xml.yml
+  - compose/$HOSTNAME/notifiarr.yml
+  - compose/$HOSTNAME/postgresql.yml
+  - compose/$HOSTNAME/pdfding.yml
+  - compose/$HOSTNAME/overseerr.yml
+  - compose/$HOSTNAME/mosquitto.yml
+  - compose/$HOSTNAME/remmina.yml
+  - compose/$HOSTNAME/guacd.yml
+  - compose/$HOSTNAME/guacamole.yml
+  - compose/$HOSTNAME/authelia.yml
+  - compose/$HOSTNAME/node-red.yml
+  - compose/$HOSTNAME/tautulli.yml
+  - compose/$HOSTNAME/mqttx-web.yml
+  # SERVICE-PLACEHOLDER-DO-NOT-DELETE

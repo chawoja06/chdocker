@@ -1,0 +1,23 @@
+# secrets / local env
+.env
+**/*.env
+secrets/
+**/secrets/
+
+# docker runtime/app data (DO NOT COMMIT)
+appdata/
+**/appdata/
+**/data/
+**/db/
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+
+# logs
+logs/
+**/logs/
+**/*.log
+
+# misc
+.DS_Store
+Thumbs.db
